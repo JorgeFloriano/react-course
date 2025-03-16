@@ -1,5 +1,5 @@
 // import the ChevronRightIcon and TrashIcon components
-import { ChevronRightIcon, TrashIcon } from "lucide-react";
+import { CheckIcon, ChevronRightIcon, TrashIcon } from "lucide-react";
 
 // import the useNavigate hook to navigate to the task page
 import { useNavigate } from "react-router-dom";
@@ -23,10 +23,12 @@ function Tasks({tasks, onTaskClick, onDeleteTaskClick}) {
                             () => onTaskClick(task.id)
                         }
                         className={
-                            `bg-slate-400 text-left text-white px-4 py-2 rounded-md w-full ${
+                            `bg-slate-400 text-left text-white px-4 py-2 rounded-md w-full flex items-center gap-2${
                                 task.isCompleted && ' line-through'
                             }`
                         }>
+                        
+                        {task.isCompleted && <CheckIcon />}
 
                         {task.title}
 
